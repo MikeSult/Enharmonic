@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Enharmonics</title>
+
+<link rel="stylesheet" type="text/css" href="enharmonicPicker.css">
+<!--
+<script type="text/javascript" src="../ToneJS/Tone.js"></script>
+-->
+
+<script type="text/javascript" src="https://www.guitarland.com/javascripts/Tone.js"></script>
+<script type="text/javascript" src="https://www.guitarland.com/javascripts/StartAudioContext.js"></script>
+</head>
+<body>
+<h1>Enharmonics</h1>
+<p><b>NOTE:</b> enharmonics are two notes that sound the same but have different names, i.e. C# and Db.</p>
+<p>One challenge for the beginning music theory student is selecting the correct enharmonic name when learning standard scales of major, natural minor, harmonic minor and melodic minor.  This page is for practicing that skill.  There are two important rules for correctly spelling these standard scales. </p>
+<ol>
+<li>Adhere to the interval formula of the scale</li>
+<li>Use all 7 letter names of the musical alphabet.</li>
+<li>A more complete discussion of the music theory content can be found at <a href="http://www.guitarland.com/Music10/MusFund/Maj_Scale/MajScale.html" target="_blank">Music Fundamentals on the Web.</a></li>
+</ol>
+<p>
+The first rule is taken care of by this page. each time you select a scale type the interval structure is displayed in the key of C.  Once you use the transpose menu the interval structure will give you two enharmonic name choices for each note and the remaining task is to complete rule two of the process, i.e.  choose the correct enharmonic so that all of the 7 letters will be used for the scale.
+</p>
+
+<!-- this script creates the module 'Enharmonic' -->
+<script src="EnharmonicPicker.js"></script>
+
+<p>The top section shows (shaded in lightblue) the interval structure of a scale in the key of C. 
+</p>
+<ul>
+<li>You can select from the <b>Scale Type</b> menu, major, natural minor, harmonic minor or melodic minor.
+</li>
+<li>You can <b>Transpose</b> that scale to another key and enharmonic choices will be displayed.
+</li>
+<li>The Black and White boxes are for reference. They show where the black and white keys lay within this limited display of notes.
+</li>
+<li>The challenge in the <b>Pick the correct enharmonic</b> section is to select the correct enharmonic for each note to spell the scale correctly. 
+</li>
+<li>As you'll hear, the two enharmonic notes sound the same but only one of the names is correct for the selected scale type and root. Once you've selected all of your enharmonic choices, click the <b>Evaluate My Choices</b> button.
+</li>
+</ul>
+
+<div id='transposeSlider'>
+
+<h2>Scale Type</h2>
+<select id='scaleType'>
+<option value='0,2,4,5,7,9,11'>Major</option>
+<option value='0,2,3,5,7,8,10'>NaturalMinor</option>
+<option value='0,2,3,5,7,8,11'>HarmonicMinor</option>
+<option value='0,2,3,5,7,9,11'>MelodicMinor</option>
+</select>
+
+
+<p>(white and black key layout when first note is C)</p>
+<div id='BW_row1'  class='oneRow'></div>
+<p>Scale root: C</p>
+<div id='row0'  class='oneRow'></div>
+<br /><hr>
+<h2>Pick the correct enharmonic</h2>
+<p id='keyChoices'>Transpose to the key of 
+<select id='transposeLetter'>
+<option value='C'>C</option>
+<option value='Cb'>Cb</option>
+<option value='C#'>C#</option>
+<option value='Db'>Db</option>
+<option value='D'>D</option>
+<option value='Eb'>Eb</option>
+<option value='E'>E</option>
+<option value='F'>F</option>
+<option value='F#'>F#</option>
+<option value='Gb'>Gb</option>
+<option value='G'>G</option>
+<option value='Ab'>Ab</option>
+<option value='A'>A</option>
+<option value='Bb'>Bb</option>
+<option value='B'>B</option>
+</select>
+</p>
+<span>
+Volume:
+<select id='volume'>
+<option value='0'>MAX</option>
+<option value='-10' SELECTED>-10</option>
+<option value='-20'>-20</option>
+<option value='-30'>-30</option>
+<option value='-40'>-40</option>
+<option value='-1000'>OFF</option>
+</select>
+
+<input type="button" VALUE="Evaluate My Choices" id="evaluateEnharmonicButton" class='evalButton'>
+</span>
+<div id='evalDiv'></div>
+
+<p>(white and black key layout when first note is <span class='newRootLetter'>C</span>)</p>
+<div id='BW_row2'  class='oneRow'></div>
+<div id='row1'  class='oneRow col-12'>
+</div>
+<div id='row2' class='oneRow col-12'>
+</div>
+<div class='belowRow2'>
+<p>From the two enharmonic choices, click the correct letter to create the correct spelling for the key of <span class='newRootLetter'>C</span>. when finished click the 'Evaluate My Choices' button</p>
+</div>
+
+</div>
+
+<p>
+<a href="../TonejsSetup.html" target="_blank">Back to the Tone.js Setup page.</a>
+</p>
+
+<script>
+var names = ['C','Db','D','Eb','E','F','Gb','G','Ab','A','Bb','B'];
+var structure = [0,2,4,5,7,9,11];
+
+var chromNames = ['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'];
+var chromStruct = [0,1,2,3,4,5,6,7,8,9,10,11];
+
+var newChromNames1 = Enharmonic.setArray('C');
+var newChromNames2 = Enharmonic.setArray('B#');
+
+var divBW1 = document.getElementById('BW_row1');
+divBW1.innerHTML = Enharmonic.createBWRow(0);
+
+var divBW2 = document.getElementById('BW_row2');
+divBW2.innerHTML = Enharmonic.createBWRow(0);
+
+var div0 = document.getElementById('row0');
+div0.innerHTML = Enharmonic.createRow('0', names, structure);
+
+var div1 = document.getElementById('row1');
+div1.innerHTML = Enharmonic.createRow('1', newChromNames1, structure);
+
+var div2 = document.getElementById('row2');
+div2.innerHTML = Enharmonic.createRow('2', newChromNames2, structure);
+
+var rootMenu = document.getElementById('transposeLetter');
+rootMenu.onchange = Enharmonic.updateTransposeArrays;
+
+var scaleTypeMenu = document.getElementById('scaleType');
+scaleTypeMenu.onchange = Enharmonic.updateModelScale;
+scaleTypeMenu.onchange = Enharmonic.updateTransposeMenu;
+
+var evalButton = document.getElementById('evaluateEnharmonicButton');
+evalButton.onclick = Enharmonic.evaluateAnswer;
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,151 @@
+/*
+  enharmonicPicker.css
+  
+*/
+html {
+    font-size: 12px;
+}
+body {
+    width: 80%;
+    margin: 0 auto;
+    max-width: 1280px;
+    min-width: 680px;    
+    background-color: #ffffff;
+    padding: 0 20px 20px 20px;
+}
+h1 {
+    font-size: 4.5em;
+    text-align: center;
+    color: #dd0000;
+    text-shadow: 1px 2px 3px black;
+}
+h2 {
+    font-size: 2em;
+}
+p {
+    font-size: 1.6em;
+    background-color: #f5f5ff;
+/*
+    background-color: #ffffff;
+    border: 1px dotted grey; 
+*/
+}
+ul {
+  font-size: 1.6em;
+}
+
+ol {
+  font-size: 1.6em;
+}
+
+ dl {
+  font-size: 1.6em; 
+ }
+
+code {
+  font-size: 1.3em; 
+}
+a:hover {     
+  background: orange;
+}
+
+.col-1 {width: 5.0%;}
+.col-12 {width: 100.0%;}
+
+[class*="col-"] {
+    float: left;
+    padding: 5px;
+}
+
+.pitchBox {
+    font-size: 2em;
+    box-sizing: border-box;
+    border: 1px solid black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+    padding: 10px 10px 10px 10px;
+    background-color: lightblue;
+}
+
+.whiteBox {
+    box-sizing: border-box;
+    border: 1px solid black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+    padding: 10px 10px 10px 10px;
+    background-color: white;
+}
+.blackBox {
+    box-sizing: border-box;
+    border: 1px solid black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+    padding: 10px 10px 10px 10px;
+    background-color: black;
+}
+
+
+.pitchBoxMask {
+    font-size: 2em;
+    box-sizing: border-box;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+    padding: 10px 10px 10px 10px;
+    background-color: #dddddd;
+    opacity:0.4;
+    color: #444444;
+}
+
+.oneRow {
+    height: 50px; 
+    width: 100%;
+    min-width: 760px;    
+}
+
+.belowRow2 {
+    padding-top: 120px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+
+
+.evalButton {
+    background-color: lightgreen;
+    border: none;
+    color: white;
+    padding: 2px 4px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+
+#evalDiv {
+/*    height: 50px; 
+    width: 50%;
+*/
+    font-size: 1.5em;
+/*    border: 1px solid black; 
+*/
+    background-color: #ddeddd;
+}
+
+.redColorBold {
+    color: #FF0000;
+}
+
+.greenColorBold {
+    color: #009900;
+}
